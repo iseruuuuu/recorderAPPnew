@@ -1,21 +1,48 @@
-//
-//  ContentView.swift
-//  recorderAPPnew
-//
-//  Created by user on 2020/10/10.
-//
+
 
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var audioRecorder: AudioRecorder
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            VStack {
+                RecordingsList(audioRecorder: audioRecorder)
+                    if audioRecorder.recording == false {
+                        Button(action:{self.audioRecorder.startRecording()}) {
+                            Image(systemName: "circle.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 60, height: 60)
+                                .clipped()
+                                .foregroundColor(.red)
+                                .padding(.bottom, 20)
+                        }
+                    } else {
+                        Button(action: {self.audioRecorder.stopRecording()}) {
+                            Image(systemName: "stop.fill")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 60, height: 60)
+                                .clipped()
+                                .foregroundColor(.red)
+                                .padding(.bottom, 20)
+                        }
+                    }
+                }
+            .navigationTitle("Voice recorder")
+            .navigationBarItems(trailing: EditButton())
+            }
+           
+        }
     }
-}
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(audioRecorder: AudioRecorder())
     }
 }
