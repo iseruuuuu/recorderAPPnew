@@ -14,24 +14,6 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     let objectWillChange = PassthroughSubject<AudioPlayer, Never>()
     
-    
-    
-    /*わからん
-    
-    let time = Date()
-    let timeFormatter = DateFormatter()
-    timeFormatter.dateFormat = "HH:ss"
-    let stringDate = dateFormatter.string(from: time) // Replace "dateFormatter" with "timeFormatter"
-
-
-    
-    @State var currentimes = NSData()
-    @State var currentTimetext = Date()
-    @State var timetext = Date()
-     
- */
-    
-    
     var isPlaying = false {
         didSet {
             objectWillChange.send(self)
@@ -40,18 +22,22 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     
     var audioPlayer: AVAudioPlayer!
     
+    /*
+     //追加した物
+     var asset: AVAsset!
+     var playerItem: AVPlayerItem!
+     var timeObserverToken: Any?
+     */
+    
     
     
     func startPlayBack (audio: URL){
-        
         let playbackSession = AVAudioSession.sharedInstance()
-        
         do {
             try playbackSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
         } catch {
             print("Playing over the device's speaker failled")
         }
-        
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: audio)
             audioPlayer.delegate = self
@@ -72,39 +58,9 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             isPlaying = false
         }
     }
-    
-    
-
-   
-    
-    
-    
-   /*
-    func changePosition(time: CMTime) {
-        let rate = audioPlayer.rate
-        audioPlayer.rate = 0
-        audioPlayer.seek(to: time, completionHandler:  {_ in
-            self.audioPlayer.rate = rate
-        })
-    }
- */
-    
-    
-    
-    
-    
     /*
-    func getDate()-> String {
-        let time = Date()
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH:ss"
-        let stringDate = timeFormatter.string(from: time)
-        return stringDate
-    }
-    
-    
-    // %は使えなくなった。
-    
+     // %は使えなくなった。
+     
      func currentTime() -> CMTime  {
      
      let rem = 2.5.truncatingRemainder(dividingBy: 1.1)
@@ -118,7 +74,4 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
      }
      
      */
-    
-    
-    
 }

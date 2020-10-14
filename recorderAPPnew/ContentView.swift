@@ -9,7 +9,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                //リストの内容
                 RecordingsList(audioRecorder: audioRecorder)
+                
                     if audioRecorder.recording == false {
                         Button(action:{self.audioRecorder.startRecording()}) {
                             Image(systemName: "circle.fill")
@@ -32,7 +34,7 @@ struct ContentView: View {
                         }
                     }
                 }
-            .navigationTitle("Voice recorder")
+            .navigationTitle("録音リスト")
             .navigationBarItems(trailing: EditButton())
             }
            

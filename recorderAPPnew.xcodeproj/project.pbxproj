@@ -19,7 +19,6 @@
 		CEF5080125332255000399C3 /* RecordingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5080025332255000399C3 /* RecordingDataModel.swift */; };
 		CEF5080825333027000399C3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5080725333027000399C3 /* Helper.swift */; };
 		CEF5080B2533E038000399C3 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5080A2533E038000399C3 /* AudioPlayer.swift */; };
-		CEF5080E253407F9000399C3 /* Extention2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5080D253407F9000399C3 /* Extention2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -62,7 +61,6 @@
 		CEF5080025332255000399C3 /* RecordingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingDataModel.swift; sourceTree = "<group>"; };
 		CEF5080725333027000399C3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		CEF5080A2533E038000399C3 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
-		CEF5080D253407F9000399C3 /* Extention2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +102,6 @@
 				CEF5080025332255000399C3 /* RecordingDataModel.swift */,
 				CEF5080725333027000399C3 /* Helper.swift */,
 				CEF5080A2533E038000399C3 /* AudioPlayer.swift */,
-				CEF5080D253407F9000399C3 /* Extention2.swift */,
 				CEAF8AB82531DA5A006C9B4C /* Assets.xcassets */,
 				CEAF8ABD2531DA5A006C9B4C /* LaunchScreen.storyboard */,
 				CEAF8AC02531DA5A006C9B4C /* Info.plist */,
@@ -196,7 +193,6 @@
 				CED63B1A253295090014E82B /* RecordingList.swift in Sources */,
 				CE113D2A2532C40F0059B88B /* Extensions.swift in Sources */,
 				CEF5080B2533E038000399C3 /* AudioPlayer.swift in Sources */,
-				CEF5080E253407F9000399C3 /* Extention2.swift in Sources */,
 				CEF5080125332255000399C3 /* RecordingDataModel.swift in Sources */,
 				CEAF8AB32531DA55006C9B4C /* AppDelegate.swift in Sources */,
 				CEAF8AB52531DA55006C9B4C /* SceneDelegate.swift in Sources */,

@@ -3,9 +3,11 @@
 
 
 
-
 import SwiftUI
+import Speech
+import MediaPlayer
 import AVKit
+import AVFoundation
 
 
 
@@ -15,8 +17,12 @@ struct RecordingsList: View {
     
     @ObservedObject var audioRecorder: AudioRecorder
     
+    
+   /*
     //シークバーの設置
     @State var seekPos = 0.0
+ */
+    
     
     
     
@@ -54,27 +60,8 @@ struct RecordingRow: View {
                
                 
                 Text("\(audioURL.lastPathComponent)")
-                    .font(.title)
-                
-         /*
-                
-                HStack {
-                    Text("00:00:00---")
-                    Text("---00:00:00")
-                }
-        */
-                
-         /* 再生の手段
-                Slider(value: $seekPos, from: 0, through: 1, onEditingChanged: { _ in
-                  guard let item = self.audioRecorder.currentItem else {
-                    return
-                  }
-                  let targetTime = self.seekPos * item.duration.seconds
-                  self.audioRecorder.seek(to: CMTime(seconds: targetTime, preferredTimescale: 600))
-                })
-                
- */
-                
+                    .font(.body)
+            
                 HStack(spacing: 60){
                     
                     //隙間を調整
@@ -89,7 +76,7 @@ struct RecordingRow: View {
                     Button(action: {
                     }) {
                         Image(systemName: "gobackward.15").onTapGesture {
-                            print("１５秒戻るよ！！")
+                            print("１５秒戻る")
                         }
                         .imageScale(.medium)
                         .foregroundColor(.blue)
@@ -123,7 +110,7 @@ struct RecordingRow: View {
                     Button(action: {
                     }) {
                         Image(systemName: "goforward.15").onTapGesture {
-                            print("１５秒進むよ！")
+                            print("１５秒進む")
                         }
                         .imageScale(.medium)// システムアイコンを指定
                         .foregroundColor(.blue)

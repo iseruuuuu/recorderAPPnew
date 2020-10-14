@@ -30,9 +30,6 @@ class AudioRecorder: NSObject,ObservableObject {
         let recordingSession = AVAudioSession.sharedInstance()
         
         do {
-            //音声を戻す？？
-            try recordingSession.setCategory(.playback, mode: .moviePlayback)
-            
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
             
@@ -41,17 +38,10 @@ class AudioRecorder: NSObject,ObservableObject {
         }
         
         
-        
-       
-        
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        
         //ファイル名の設定
        // let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).m4a")
-        
-        
-        
-        let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "YYYY-MM-dd HH:mm:ss")) ")
+        let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "「YYYY-MM-dd HH:mm:ss」")).m4a")
         
         
      
@@ -65,8 +55,6 @@ class AudioRecorder: NSObject,ObservableObject {
         ]
         
         do {
-           
-            
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.record()
             recording = true
@@ -99,9 +87,9 @@ class AudioRecorder: NSObject,ObservableObject {
             recordings.append(recording)
         }
         recordings.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedAscending})
-        
         objectWillChange.send(self)
     }
+    
     
     func deleteRecording(urlsToDelete: [URL]) {
         

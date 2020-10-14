@@ -16,6 +16,21 @@ extension Date {
         dateFormatter.dateFormat = format
         
         
+        
+        
+        //ここは追加した物
+        
+        func timeToString(time: TimeInterval) -> String {
+            let second: Int
+            let minute: Int
+            second = Int(time) % 60
+            minute = Int(time) / 60
+            return "\(minute):\(NSString(format: "%02d", second))"
+        }
+        
+        
+        
+        
         func getDate()-> String {
             let time = Date()
             let timeFormatter = DateFormatter()
