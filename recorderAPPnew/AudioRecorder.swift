@@ -8,23 +8,21 @@ import AVFoundation
 import AVKit
 
 class AudioRecorder: NSObject,ObservableObject {
-    
     override init() {
         super.init()
         fetchRecordings()
     }
     
+    
     let objectWillChange = PassthroughSubject<AudioRecorder, Never>()
-    
     var audioRecorder: AVAudioRecorder!
-    
     var recordings = [Recording]()
-    
     var recording = false {
         didSet {
             objectWillChange.send(self)
         }
     }
+    
     
     func startRecording() {
         let recordingSession = AVAudioSession.sharedInstance()
@@ -32,7 +30,6 @@ class AudioRecorder: NSObject,ObservableObject {
         do {
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
-            
         } catch {
             print ("Faild to set up recording session")
         }
@@ -40,11 +37,11 @@ class AudioRecorder: NSObject,ObservableObject {
         
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         //ファイル名の設定
-       // let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).m4a")
+        // let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).m4a")
         let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "「YYYY-MM-dd HH:mm:ss」")).m4a")
         
         
-     
+        
         
         
         let settings = [
@@ -62,20 +59,11 @@ class AudioRecorder: NSObject,ObservableObject {
             print("Could not start recording")
         }
     }
-    
-    
-    
-    
     func stopRecording() {
         audioRecorder.stop()
         recording = false
-        
         fetchRecordings()
-        
     }
-    
-    
-    
     
     func fetchRecordings() {
         recordings.removeAll()
@@ -90,7 +78,6 @@ class AudioRecorder: NSObject,ObservableObject {
         objectWillChange.send(self)
     }
     
-    
     func deleteRecording(urlsToDelete: [URL]) {
         
         for url in urlsToDelete {
@@ -101,13 +88,8 @@ class AudioRecorder: NSObject,ObservableObject {
                 print("File could not be deleted!")
             }
         }
-        
         fetchRecordings()
-        
     }
-    
-    
-    
 }
 
 
