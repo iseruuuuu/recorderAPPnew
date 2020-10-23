@@ -8,6 +8,7 @@ import Speech
 import MediaPlayer
 import AVKit
 import AVFoundation
+import Combine
 
 
 
@@ -19,19 +20,11 @@ struct RecordingsList: View {
     
     @State private var value: Double = 0
     
-    /*
-     //シークバーの設置
-     @State var seekPos = 0.0
-     */
     
-    /*
-    @State var time: TimeInterval
-    init() {
-        _time = .init(initialValue: 0)
-    }
- */
     
-
+    
+    
+    
     
     
     var body: some View {
@@ -55,11 +48,36 @@ struct RecordingsList: View {
 }
 
 
+private func formatTime(sec: Int) -> String {
+    let h = sec / 3600 % 24
+    let m = sec / 60 % 60
+    let s = sec % 60
+    
+    if h == 0 {
+        return String(format: "%d:%02d", m, s)
+    }
+    else {
+        return String(format: "%d:%d:%02d", h, m, s)
+    }
+}
+
+
+
+
+
 struct RecordingRow: View {
     
     var audioURL: URL
     
     @ObservedObject var audioPlayer = AudioPlayer()
+    
+    
+    //  @State private var seekPosition: Double = 0.3
+    
+    @State private var  currentTime: Double = 0.3
+    @State private var currentVolume: Double = 0.5
+    
+    private let secondaryGray: Color = .init(white: 0.75)
     
     var body: some View {
         // HStack(alignment:.center) {
@@ -69,31 +87,42 @@ struct RecordingRow: View {
             Text("\(audioURL.lastPathComponent)")
                 .font(.body)
             
-                /*シークバーの設置
-             func changePosition(time: CMTime) {
-                let rate = player.rate
-                // いったんplayerをとめる
-                player.rate = 0
-                // 指定した時間へ移動
-                player.seek(to: time, completionHandler: {_ in
-                    // playerをもとのrateに戻す(0より大きいならrateの速度で再生される)
-                    self.player.rate = rate
-                })
-            }
- */
-         /*
-            return Silder(value:self.$time) {
-                EmptyView()
-            }
-            */
+            //private var seekBar: some View {
             
-           /*
-            VStack {
-                Slider(value: $value, in: 0...100)
-                Text("現在の値:\(value)")
+            VStack(spacing: 0) {
+                Slider(value: $currentTime, in: 0...1)
+                    .accentColor(secondaryGray)
+                HStack {
+                    //Text(formatTime(sec: Int(audioPlayer.audioPlayer.currentTime * currentTime)))
+                    Text("00:00")
+                        .font(.system(size: 14))
+                        .foregroundColor(secondaryGray)
+                    Spacer()
+                    // Text("-" + formatTime(sec: Int(audioPlayer.audioPlayer.currentTime * (1 - currentTime))))
+                    Text("01:00")
+                        .font(.system(size: 14))
+                        .foregroundColor(secondaryGray)
+                }
             }
+            //}
             
- */
+            //音量（多分使わない。）
+            /*
+             Slider(
+             value: $currentVolume,
+             in: 0...1,
+             minimumValueLabel:
+             Image(systemName: "speaker.fill")
+             .font(.system(size: 10))
+             .foregroundColor(secondaryGray),
+             maximumValueLabel:
+             Image(systemName: "speaker.3.fill")
+             .font(.system(size: 10))
+             .foregroundColor(secondaryGray)
+             ) {}
+             .accentColor(secondaryGray)
+             
+             */
             
             
             HStack(spacing: 60){
@@ -156,6 +185,8 @@ struct RecordingRow: View {
                 }) {
                     Text("")
                 }
+                
+                
                 
                 
             }
