@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CE113D2A2532C40F0059B88B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE113D292532C40F0059B88B /* Extensions.swift */; };
+		CE25A330254FFC8B00994628 /* wwwwww.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25A32F254FFC8B00994628 /* wwwwww.swift */; };
+		CE31499E25440E7D009BD8CD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31499D25440E7D009BD8CD /* HomeViewModel.swift */; };
+		CEA73106254AB296004F0E4C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA73105254AB296004F0E4C /* AudioToolbox.framework */; };
 		CEAF8AB32531DA55006C9B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF8AB22531DA55006C9B4C /* AppDelegate.swift */; };
 		CEAF8AB52531DA55006C9B4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF8AB42531DA55006C9B4C /* SceneDelegate.swift */; };
 		CEAF8AB72531DA55006C9B4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF8AB62531DA55006C9B4C /* ContentView.swift */; };
@@ -19,6 +22,7 @@
 		CEF5080125332255000399C3 /* RecordingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5080025332255000399C3 /* RecordingDataModel.swift */; };
 		CEF5080825333027000399C3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5080725333027000399C3 /* Helper.swift */; };
 		CEF5080B2533E038000399C3 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5080A2533E038000399C3 /* AudioPlayer.swift */; };
+		CEF5BA27255283CB00825046 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF5BA26255283CB00825046 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -48,6 +52,10 @@
 
 /* Begin PBXFileReference section */
 		CE113D292532C40F0059B88B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CE25A32F254FFC8B00994628 /* wwwwww.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wwwwww.swift; sourceTree = "<group>"; };
+		CE31499D25440E7D009BD8CD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CEA73103254AB296004F0E4C /* recorderAPPnew.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = recorderAPPnew.entitlements; sourceTree = "<group>"; };
+		CEA73105254AB296004F0E4C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEAF8AAF2531DA55006C9B4C /* recorderAPPnew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recorderAPPnew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAF8AB22531DA55006C9B4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEAF8AB42531DA55006C9B4C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +69,7 @@
 		CEF5080025332255000399C3 /* RecordingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingDataModel.swift; sourceTree = "<group>"; };
 		CEF5080725333027000399C3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		CEF5080A2533E038000399C3 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		CEF5BA26255283CB00825046 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,17 +77,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEF5BA27255283CB00825046 /* AVFoundation.framework in Frameworks */,
+				CEA73106254AB296004F0E4C /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEA73104254AB296004F0E4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEF5BA26255283CB00825046 /* AVFoundation.framework */,
+				CEA73105254AB296004F0E4C /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CEAF8AA62531DA55006C9B4C = {
 			isa = PBXGroup;
 			children = (
 				CEAF8AB12531DA55006C9B4C /* recorderAPPnew */,
 				CEAF8AB02531DA55006C9B4C /* Products */,
+				CEA73104254AB296004F0E4C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,6 +114,7 @@
 		CEAF8AB12531DA55006C9B4C /* recorderAPPnew */ = {
 			isa = PBXGroup;
 			children = (
+				CEA73103254AB296004F0E4C /* recorderAPPnew.entitlements */,
 				CEAF8AB22531DA55006C9B4C /* AppDelegate.swift */,
 				CEAF8AB42531DA55006C9B4C /* SceneDelegate.swift */,
 				CEAF8AB62531DA55006C9B4C /* ContentView.swift */,
@@ -102,6 +124,8 @@
 				CEF5080025332255000399C3 /* RecordingDataModel.swift */,
 				CEF5080725333027000399C3 /* Helper.swift */,
 				CEF5080A2533E038000399C3 /* AudioPlayer.swift */,
+				CE31499D25440E7D009BD8CD /* HomeViewModel.swift */,
+				CE25A32F254FFC8B00994628 /* wwwwww.swift */,
 				CEAF8AB82531DA5A006C9B4C /* Assets.xcassets */,
 				CEAF8ABD2531DA5A006C9B4C /* LaunchScreen.storyboard */,
 				CEAF8AC02531DA5A006C9B4C /* Info.plist */,
@@ -193,9 +217,11 @@
 				CED63B1A253295090014E82B /* RecordingList.swift in Sources */,
 				CE113D2A2532C40F0059B88B /* Extensions.swift in Sources */,
 				CEF5080B2533E038000399C3 /* AudioPlayer.swift in Sources */,
+				CE31499E25440E7D009BD8CD /* HomeViewModel.swift in Sources */,
 				CEF5080125332255000399C3 /* RecordingDataModel.swift in Sources */,
 				CEAF8AB32531DA55006C9B4C /* AppDelegate.swift in Sources */,
 				CEAF8AB52531DA55006C9B4C /* SceneDelegate.swift in Sources */,
+				CE25A330254FFC8B00994628 /* wwwwww.swift in Sources */,
 				CED63B17253293040014E82B /* AudioRecorder.swift in Sources */,
 				CEAF8AB72531DA55006C9B4C /* ContentView.swift in Sources */,
 				CEF5080825333027000399C3 /* Helper.swift in Sources */,
@@ -337,6 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = recorderAPPnew/recorderAPPnew.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"recorderAPPnew/Preview Content\"";
 				DEVELOPMENT_TEAM = D453TST7T9;
@@ -358,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = recorderAPPnew/recorderAPPnew.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"recorderAPPnew/Preview Content\"";
 				DEVELOPMENT_TEAM = D453TST7T9;

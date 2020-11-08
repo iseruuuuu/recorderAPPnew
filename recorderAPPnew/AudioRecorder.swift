@@ -11,7 +11,22 @@ class AudioRecorder: NSObject,ObservableObject {
     override init() {
         super.init()
         fetchRecordings()
+   
     }
+    /*
+    final class AudioManager{
+        var audioRecorder: AVAudioRecorder!
+        var audioEngine: AVAudioEngine!
+        var audioFile : AVAudioFile!
+        var audioPlayerNode: AVAudioPlayerNode!
+        var audi0UnitTimePitch: AVAudioUnitTimePitch!
+        
+        init(){}
+        
+    }
+    
+ */
+    
     
     
     let objectWillChange = PassthroughSubject<AudioRecorder, Never>()
@@ -26,7 +41,6 @@ class AudioRecorder: NSObject,ObservableObject {
     
     func startRecording() {
         let recordingSession = AVAudioSession.sharedInstance()
-        
         do {
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
@@ -53,11 +67,13 @@ class AudioRecorder: NSObject,ObservableObject {
         
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
+            audioRecorder.delegate = self as? AVAudioRecorderDelegate
             audioRecorder.record()
             recording = true
         } catch {
             print("Could not start recording")
         }
+        
     }
     func stopRecording() {
         audioRecorder.stop()
@@ -67,16 +83,27 @@ class AudioRecorder: NSObject,ObservableObject {
     
     func fetchRecordings() {
         recordings.removeAll()
+        
         let fileManager = FileManager.default
         let documentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let directoryContents = try! fileManager.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: nil)
         for audio in directoryContents {
+            
             let recording = Recording(fileURL: audio, createdAt: getCreationDate(for: audio))
             recordings.append(recording)
         }
         recordings.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedAscending})
         objectWillChange.send(self)
     }
+    
+    func getAudioFileUrl() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let docsDirect = paths[0]
+        let audioUrl = docsDirect.appendingPathComponent("record.m4a")
+        return audioUrl
+        
+    }
+    
     
     func deleteRecording(urlsToDelete: [URL]) {
         

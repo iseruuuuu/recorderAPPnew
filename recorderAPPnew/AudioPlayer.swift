@@ -21,7 +21,13 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     }
     
     var audioPlayer: AVAudioPlayer!
-    
+   // var audioPlayer = AVAudioPlayer()
+    @State var sliderValue = 0.0
+    var maxSlider = 60.0
+    var minSlider = 0.0
+  
+   // @StateObject var sliderValue: RecordingList!//(audioPlayer: audioPlayer)
+    //@StateObject var homeData : HomeViewModel!//(audioPlayer: audioPlayer)
     /*
      //追加した物
      var asset: AVAsset!
@@ -41,6 +47,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: audio)
             audioPlayer.delegate = self
+            audioPlayer.prepareToPlay()
             audioPlayer.play()
             isPlaying = true
         } catch {
@@ -48,9 +55,54 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
     }
     
+  
+    func pauseplay() {
+        if audioPlayer.isPlaying == true {
+            audioPlayer.stop()
+          
+        }else {
+            audioPlayer.play()
+          //  Image(systemName: "play.circle")
+        }
+    }
+    
+    
     func stopPlayBack() {
         audioPlayer.stop()
         isPlaying = false
+      //  audioPlayer.pause()
+      // isPlaying = false
+    }
+    
+    
+    func audiopause() {
+        audioPlayer.pause()
+    }
+    
+    
+   
+    
+
+    func playprogress(){
+        audioPlayer.currentTime +=  1
+    }
+ 
+  //  $sliderValue
+    
+    func playupdown() {
+        if sliderValue <= 50 {
+            audioPlayer.currentTime += 1
+        }else {
+            audioPlayer.currentTime -= 1
+    }
+    }
+    
+    func audioSlider2() {
+        if minSlider < maxSlider {
+            audioPlayer.currentTime += 1
+        }else {
+            audioPlayer.currentTime -= 1
+        }
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
@@ -58,6 +110,8 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
             isPlaying = false
         }
     }
+}
+  
     /*
      // %は使えなくなった。
      
@@ -65,7 +119,7 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
      
      let rem = 2.5.truncatingRemainder(dividingBy: 1.1)
      
-     audioPlayer.currentTime
+        audioPlayer.currentTime
      
      let time = audioPlayer.currentTime
      let minutes = Int(time / 60)
@@ -73,5 +127,6 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
      currentTime.text = NSString(format:"%02d:%02d", minutes, seconds) as String
      }
      
-     */
+     
 }
+*/
