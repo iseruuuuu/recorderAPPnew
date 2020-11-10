@@ -41,14 +41,19 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         let playbackSession = AVAudioSession.sharedInstance()
         do {
             try playbackSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+          //  try AVAudioSession.sharedInstance().setCategory(true)
         } catch {
+            NSLog("audio session set category faikure")
             print("Playing over the device's speaker failled")
         }
         do {
+           
             audioPlayer = try AVAudioPlayer(contentsOf: audio)
             audioPlayer.delegate = self
             audioPlayer.prepareToPlay()
             audioPlayer.play()
+        
             isPlaying = true
         } catch {
             print("Playback failed.")
@@ -59,10 +64,10 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
     func pauseplay() {
         if audioPlayer.isPlaying == true {
             audioPlayer.stop()
-          
+            Image(systemName: "play.circle")
         }else {
             audioPlayer.play()
-          //  Image(systemName: "play.circle")
+           // Image(systemName: "play.circle")
         }
     }
     

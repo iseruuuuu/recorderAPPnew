@@ -69,8 +69,10 @@ class AudioRecorder: NSObject,ObservableObject {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self as? AVAudioRecorderDelegate
             audioRecorder.record()
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
             recording = true
         } catch {
+            NSLog("audio session set categorry failure")
             print("Could not start recording")
         }
         
