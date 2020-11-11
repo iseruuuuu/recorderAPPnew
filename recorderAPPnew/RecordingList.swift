@@ -226,8 +226,8 @@ struct RecordingRow: View {
             if audioPlayer.isPlaying == false {
                 Button(action: {
                 }) {
-                    Image(systemName: "play.fill")
-                        //  Image(systemName: homeData.isPlaying ? "pause.fill" : "play.fill")
+                  //  Image(systemName: "play.fill")
+                        Image(systemName: audioPlayer.isPlaying ? "pause.fill" : "play.fill")
                         .onTapGesture{
                             //再生するためのもの
                             self.audioPlayer.startPlayBack(audio: self.audioURL)
@@ -236,29 +236,44 @@ struct RecordingRow: View {
                         .foregroundColor(.blue)
                 }
                 .font(.title)
-                /*
-                 if audioPlayer.isPlaying == true {
-                 Image(systemName: "pause")
-                 }
-                 */
-                
             } else {
+                
+            //    if audioPlayer.isPlaying == true {
+                //true の場合（再生中の場合）
                 Button(action: {
                 }) {
-                    
                     ZStack {
-                        
                         Image(systemName: "pause")
-                        
+                    //    Image(systemName: audioPlayer.isPlaying ? "pause.fill" : "play.fill")
                     }
                     .onTapGesture {
                         //   Image(systemName: "pause" : systemName: "play.circle").onTapGesture {
-                        self.audioPlayer.pauseplay()
+                           self.audioPlayer.pauseplay()
+                        // self.audioPlayer.playpause()
                     }
                     .imageScale(.large)
                     .foregroundColor(.blue)
                 }
                 .font(.title)
+                /*
+                
+                }else {
+                    Button(action: {
+                    }) {
+                        ZStack {
+                            Image(systemName: "play.fill")
+                        //    Image(systemName: audioPlayer.isPlaying ? "pause.fill" : "play.fill")
+                        }
+                        .onTapGesture {
+                            //   Image(systemName: "pause" : systemName: "play.circle").onTapGesture {
+                            self.audioPlayer.playplay()
+                        }
+                        .imageScale(.large)
+                        .foregroundColor(.blue)
+                    }
+                    .font(.title)
+                }
+                 */
             }
             
             
@@ -275,7 +290,6 @@ struct RecordingRow: View {
                             Image(systemName: "gobackward.10")
                         }
                     }
-                    
                 }
                 .imageScale(.medium)
                 .foregroundColor(.blue)

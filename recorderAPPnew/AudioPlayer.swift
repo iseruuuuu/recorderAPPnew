@@ -52,6 +52,14 @@ class AudioPlayer: NSObject, ObservableObject, AVAudioPlayerDelegate {
         }
     }
     
+    func playpause() {
+        audioPlayer.stop()
+    }
+    func playplay() {
+        audioPlayer.play()
+    }
+    
+    
     func replay() {
         if audioPlayer.isPlaying == true {
             audioPlayer.play()
