@@ -7,26 +7,14 @@ import Combine
 import AVFoundation
 import AVKit
 
+
+
 class AudioRecorder: NSObject,ObservableObject {
     override init() {
         super.init()
         fetchRecordings()
    
     }
-    /*
-    final class AudioManager{
-        var audioRecorder: AVAudioRecorder!
-        var audioEngine: AVAudioEngine!
-        var audioFile : AVAudioFile!
-        var audioPlayerNode: AVAudioPlayerNode!
-        var audi0UnitTimePitch: AVAudioUnitTimePitch!
-        
-        init(){}
-        
-    }
-    
- */
-    
     
     
     let objectWillChange = PassthroughSubject<AudioRecorder, Never>()
@@ -50,7 +38,7 @@ class AudioRecorder: NSObject,ObservableObject {
         
         
         let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        //ファイル名の設定
+       
         // let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "dd-MM-YY_'at'_HH:mm:ss")).m4a")
         let audioFilename = documentPath.appendingPathComponent("\(Date().toString(dateFormat: "「YYYY-MM-dd HH:mm:ss」")).m4a")
         

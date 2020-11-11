@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		CE113D2A2532C40F0059B88B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE113D292532C40F0059B88B /* Extensions.swift */; };
-		CE25A330254FFC8B00994628 /* wwwwww.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25A32F254FFC8B00994628 /* wwwwww.swift */; };
-		CE31499E25440E7D009BD8CD /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE31499D25440E7D009BD8CD /* HomeViewModel.swift */; };
 		CEA73106254AB296004F0E4C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA73105254AB296004F0E4C /* AudioToolbox.framework */; };
 		CEAF8AB32531DA55006C9B4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF8AB22531DA55006C9B4C /* AppDelegate.swift */; };
 		CEAF8AB52531DA55006C9B4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAF8AB42531DA55006C9B4C /* SceneDelegate.swift */; };
@@ -52,8 +50,6 @@
 
 /* Begin PBXFileReference section */
 		CE113D292532C40F0059B88B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		CE25A32F254FFC8B00994628 /* wwwwww.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wwwwww.swift; sourceTree = "<group>"; };
-		CE31499D25440E7D009BD8CD /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CEA73103254AB296004F0E4C /* recorderAPPnew.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = recorderAPPnew.entitlements; sourceTree = "<group>"; };
 		CEA73105254AB296004F0E4C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CEAF8AAF2531DA55006C9B4C /* recorderAPPnew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recorderAPPnew.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,8 +120,6 @@
 				CEF5080025332255000399C3 /* RecordingDataModel.swift */,
 				CEF5080725333027000399C3 /* Helper.swift */,
 				CEF5080A2533E038000399C3 /* AudioPlayer.swift */,
-				CE31499D25440E7D009BD8CD /* HomeViewModel.swift */,
-				CE25A32F254FFC8B00994628 /* wwwwww.swift */,
 				CEAF8AB82531DA5A006C9B4C /* Assets.xcassets */,
 				CEAF8ABD2531DA5A006C9B4C /* LaunchScreen.storyboard */,
 				CEAF8AC02531DA5A006C9B4C /* Info.plist */,
@@ -217,11 +211,9 @@
 				CED63B1A253295090014E82B /* RecordingList.swift in Sources */,
 				CE113D2A2532C40F0059B88B /* Extensions.swift in Sources */,
 				CEF5080B2533E038000399C3 /* AudioPlayer.swift in Sources */,
-				CE31499E25440E7D009BD8CD /* HomeViewModel.swift in Sources */,
 				CEF5080125332255000399C3 /* RecordingDataModel.swift in Sources */,
 				CEAF8AB32531DA55006C9B4C /* AppDelegate.swift in Sources */,
 				CEAF8AB52531DA55006C9B4C /* SceneDelegate.swift in Sources */,
-				CE25A330254FFC8B00994628 /* wwwwww.swift in Sources */,
 				CED63B17253293040014E82B /* AudioRecorder.swift in Sources */,
 				CEAF8AB72531DA55006C9B4C /* ContentView.swift in Sources */,
 				CEF5080825333027000399C3 /* Helper.swift in Sources */,
